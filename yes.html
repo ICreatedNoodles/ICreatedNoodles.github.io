@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Druthi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 50px; /* Added padding for content */
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .paragraph {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            margin-bottom: 20px;
+            display: flex; /* Display paragraphs and pictures side by side */
+        }
+        .paragraph p {
+            flex: 1; /* Allow paragraphs to grow to fill available space */
+            transition: opacity 0.5s ease-in-out; /* Fade-in transition for paragraphs */
+        }
+        .slide-in {
+            opacity: 0;
+            transform: translateX(-50%);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Slide-in transition for pictures */
+            flex: 1; /* Allow pictures to grow to fill available space */
+        }
+        .visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .inline-image {
+            display: inline-block;
+            vertical-align: middle; /* Align the image vertically */
+        }
+    </style>
+</head>
+<body>
+    <h1>About <strike>BruTea</strike> Druthi</h1>
+    <div class="content">
+        <div class="paragraph" id="paragraph1">
+            <p>Hello <strike>World</strike> Druthi? <br> On 18th <strike>Sept</strike> April, a cutely innocent kid was born.<br>
+            Surprisingly she was named Druthi.<br> Druthi means patience in Sanskrit, the only thing she lacks at 23:05 while am coding this.
+        <br>If you look at this picture, you will know what I mean. This is a picture of her in Lulu Mall, prolly getting annoyed or heck feeling shy while her father literally calls her name and asks her to pose. Is it true? Who knows? Only the world god knows.
+        Can you believe that this sweet looking innocent girl will send some random dude who is right now on call some video, trapping him, and literally forcing him to reveal his birthday surprise?
+        <br>But look at her, just look at this sweet blob of cuteness, can you imagine her turning into a mindless sadist who likes to annoy, pinch, poke me with a pen and slap and tease.</p>
+            <div class="slide-in" id="picture1">
+                <img src="image1.jpg" alt="Picture 1">
+            </div>
+        </div>
+        <div class="paragraph" id="paragraph2">
+            <p>So, this is another pic of her that I got after begging her, promising her not to leak it.
+                <br>From what I understood, this girl is right now in Gardens By The Bay.
+                <br>So, I have literally 0 idea about her school life. Nope, if you think that she will 
+                tell me about it, just cause am her friend, then you can't be any wrong.
+                she is a hiding lil smoll blob evil. Jokes aside, this is a loli and by the law, we must protekt her.
+                Even when we all know how evil she will turn.
+                My hands hurt by the pinching, HELP!!!!!!!!!!! 🥺🥺🥺🥺
+            </p>
+            <div class="slide-in" id="picture2">
+                <img src="image2.jpg" alt="Picture 2">
+            </div>
+        </div>
+        
+        <div class="paragraph" id="paragraph3">
+            <p>So comes the most hidden part of her life from me, I mean not much is known about this beauty in the picture.
+                All that is known to mankind is that, this creature was an avid BTS, which definetely stands for a korean group, 
+                and no other acronym fan. A few of her favourites include Jung Kook, I am 100% sure I pronounced his name wrong and this sinister demon will pinch me again.
+                So this was the phase where she started liking overcooked rice, under the pretext of her trying to be more korean like.
+                Imagine an Indian girl liking overcooked, soggy rice.
+                For me that's enough of a reason to never watch BTS.
+                This however starts the beginning of her craze which sadly continue for the years to come.
+
+            </p>
+            <div class="slide-in" id="picture3">
+                <img src="image3.jpg" alt="Picture 3">
+            </div>
+        </div>
+        
+        <div class="paragraph" id="paragraph4">
+            <p>This is the fourth paragraph.</p>
+            <div class="slide-in" id="picture4">
+                <img src="image4.jpg" alt="Picture 4">
+            </div>
+        </div>
+        
+        <div class="paragraph slide-right" id="paragraph5">
+            <p>This is the fifth paragraph.</p>
+            <div class="slide-in slide-right" id="picture5">
+                <img src="image5.jpg" alt="Picture 5">
+            </div>
+        </div>
+    <!-- Add more paragraphs and pictures as needed -->
+    </div>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const paragraph1 = document.getElementById('paragraph1');
+            const paragraph2 = document.getElementById('paragraph2');
+            const paragraph3 = document.getElementById('paragraph3')
+            const picture1 = document.getElementById('picture1');
+            const picture2 = document.getElementById('picture2');
+            const picture3 = document.getElementById('picture3');
+            const scrollPosition = window.scrollY;
+            const windowHeight = window.innerHeight;
+
+            // Check if the paragraph is in the viewport
+            if (scrollPosition > paragraph1.offsetTop - windowHeight / 2) {
+                paragraph1.classList.add('visible');
+                paragraph1.querySelector('p').style.opacity = 1; // Fade in paragraph text
+            }
+
+            if (scrollPosition > paragraph2.offsetTop - windowHeight / 2) {
+                paragraph2.classList.add('visible');
+                paragraph2.querySelector('p').style.opacity = 1; // Fade in paragraph text
+            }
+            if (scrollPosition > paragraph3.offsetTop - windowHeight / 2) {
+                paragraph3.classList.add('visible');
+                paragraph3.querySelector('p').style.opacity = 1; // Fade in paragraph text
+            }
+
+            // Check if the picture is in the viewport
+            if (scrollPosition > picture1.offsetTop - windowHeight / 2) {
+                picture1.classList.add('visible');
+            }
+
+            if (scrollPosition > picture2.offsetTop - windowHeight / 2) {
+                picture2.classList.add('visible');
+            }
+
+            if (scrollPosition > picture3.offsetTop - windowHeight / 2) {
+                picture3.classList.add('visible');
+            }
+        });
+    </script>
+</body>
+</html>

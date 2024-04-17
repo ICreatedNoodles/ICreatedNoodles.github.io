@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fading Content</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+            height: 2000px; /* Added height for scrolling effect in this example */
+            display: flex;
+            justify-content: center;
+
+        }
+        .content {
+            padding: 50px; /* Added padding */
+            max-width: 600px;
+            margin: 100px auto;
+            text-align: center;
+        }
+        #nameToFade {
+            opacity: 1; /* Initially visible */
+            transition: opacity 0.5s ease-in-out; /* Fading transition */
+        }
+        #revealedText {
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.5s ease-in-out; /* Fading transition */
+            margin-top: 20px;
+        }
+        .options {
+            display: none; /* Initially hidden */
+            margin-top: 20px;
+            gap: 10px; /* Added gap between buttons */
+            justify-content: center; /* Center-align buttons horizontally */
+        }
+        .option-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.5s ease-in-out; /* Fading transition */
+        }
+        .option-button:hover {
+            background-color: #0056b3;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            display: none; /* Initially hidden */
+        }
+    </style>
+</head>
+<body>
+    <div class="content" id="content">
+        <h1 id="nameToFade">Name to Fade</h1>
+        <p id="revealedText">This is the revealed paragraph.</p>
+        <div class="options">
+            <button class="option-button" onclick="askQuestion()">Yes</button>
+            <button class="option-button" onclick="showBye()">No</button>
+        </div>
+        <p class="error-message" id="errorMessage">Incorrect answer! Please try again.</p>
+    </div>
+
+    <script>
+        function askQuestion() {
+            const response = prompt('What is 2 + 2?'); // Ask a question
+
+            if (response === '4') { // Check if the answer is correct
+                window.location.href = 'yes.html'; // Redirect to another page for correct answer
+            } else {
+                showError(); // Show error message for incorrect answer
+            }
+        }
+
+        function showBye() {
+            alert('Bye!'); // Show bye message
+        }
+
+        function showError() {
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.style.display = 'block'; // Show error message
+        }
+
+        window.addEventListener('scroll', () => {
+            const nameToFade = document.getElementById('nameToFade');
+            const revealedText = document.getElementById('revealedText');
+            const options = document.querySelector('.options');
+            const buttons = document.querySelectorAll('.option-button');
+            const scrollPosition = window.scrollY;
+
+            // Calculate opacity based on scroll position
+            const nameOpacity = 1 - scrollPosition / 100; // Adjust divisor for faster/slower fading
+            const textOpacity = scrollPosition / 100; // Adjust divisor for faster/slower fading
+
+            // Apply opacity values
+            nameToFade.style.opacity = nameOpacity;
+            revealedText.style.opacity = textOpacity;
+
+            // Show options when the revealed text becomes visible
+            if (textOpacity > 0) {
+                options.style.display = 'flex';
+                buttons.forEach(button => {
+                    button.style.opacity = textOpacity; // Match button opacity with revealed text opacity
+                });
+            } else {
+                options.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

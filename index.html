@@ -1,5 +1,78 @@
-<HTML>
-  <BODY>
-    Hello
-  </BODY>
-</HTML>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter the Answer:</h1>
+        <input type="text" id="answerInput" placeholder="Type your answer">
+        <button onclick="checkAnswer()">Submit</button>
+        <p id="errorMessage" class="error-message"></p>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            var userInput = document.getElementById('answerInput').value.toLowerCase();
+            var correctAnswer = 'druthi'; // Change this to the correct answer
+            var errorMessage = document.getElementById('errorMessage');
+
+            if (userInput === correctAnswer) {
+                window.location.href = 'druthi.html';
+            } else {
+                errorMessage.textContent = 'Incorrect answer. Please try again.';
+            }
+        }
+    </script>
+</body>
+</html>
