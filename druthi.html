@@ -71,12 +71,7 @@
     <script>
         function askQuestion() {
             const response = prompt('Who has occupied my mind?'); // Ask a question
-
-            if (response === 'DruTea') { // Check if the answer is correct
-                window.location.href = 'yes.html'; // Redirect to another page for correct answer
-            } else {
-                showError(); // Show error message for incorrect answer
-            }
+            window.location.href = 'yes.html'; // Redirect to another page for correct answer
         }
 
         function showBye() {
