@@ -43,10 +43,29 @@
             display: inline-block;
             vertical-align: middle; /* Align the image vertically */
         }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <h1>About <strike>BruTea</strike> Druthi</h1>
+    
     <div class="content">
         <div class="paragraph" id="paragraph1">
             <p>Hello <strike>World</strike> Druthi? <br> On 18th <strike>Sept</strike> April, a cutely innocent kid was born.<br>
@@ -88,29 +107,68 @@
         </div>
         
         <div class="paragraph" id="paragraph4">
-            <p>This is the fourth paragraph.</p>
+            <p>Like all the things, the cringe fangirl phase ended, and so yet another phase started.
+                Druthi now hell bent on being the serious girl she could never be, in the new college, but unbeknownst to her,
+                a big ass clown was in the same class as her.
+                <br>
+                <strike>From the first homie, to the first Orangutan, she found a nice friend, her words not mine.</strike>
+                And yet again, Druthi failed to be what she wanted, look at this picture.
+                A clear depiction of an Auntie being fed up of kids around her, with no smile and not even a wink of happiness.
+                Acharya gave her a lot of things, including the responsiblity to take care of her group members.
+                It was this phase, that she started pinching me, and boy oh boy, she pinches me all day.
+                Scold her, anyone. She encourages all the girls to annoy me.<br>
+                <strike>I am being bullied</strike>
+                <br>🥺🥺🥺🥺🥺🥺🥺
+            </p>
             <div class="slide-in" id="picture4">
                 <img src="image4.jpg" alt="Picture 4">
             </div>
         </div>
-        
-        <div class="paragraph slide-right" id="paragraph5">
-            <p>This is the fifth paragraph.</p>
-            <div class="slide-in slide-right" id="picture5">
-                <img src="image5.jpg" alt="Picture 5">
-            </div>
+        <div class="button-container">
+            <button class="button" onclick="redirectToMemes()">Memes</button>
+            <button class="button" onclick="redirectToPictures()">Pictures</button>
+            <button class="button" onclick="redirectToNote()">Note</button>
         </div>
-    <!-- Add more paragraphs and pictures as needed -->
+        
     </div>
 
     <script>
+        function redirectToMemes()
+        {
+            var password = prompt("Enter the password for Memes:");
+            if (password === "memes") {
+                window.location.href = "memes.html";
+            } else {
+                alert("Incorrect password!");
+            }
+        }
+        function redirectToPictures() {
+            var password = prompt("Enter the password for Pictures:");
+            if (password === "pictures") {
+                window.location.href = "pictures.html";
+            } else {
+                alert("Incorrect password!");
+            }
+        }
+
+    
+        function redirectToNote() {
+            var password = prompt("Enter the password for Note:");
+            if (password === "notes") {
+                window.location.href = "notes.html";
+            } else {
+                alert("Incorrect password!");
+            }
+        }
         window.addEventListener('scroll', () => {
             const paragraph1 = document.getElementById('paragraph1');
             const paragraph2 = document.getElementById('paragraph2');
             const paragraph3 = document.getElementById('paragraph3')
+            const paragraph4 = document.getElementById('paragraph4')
             const picture1 = document.getElementById('picture1');
             const picture2 = document.getElementById('picture2');
             const picture3 = document.getElementById('picture3');
+            const picture4 = document.getElementById('picture4')
             const scrollPosition = window.scrollY;
             const windowHeight = window.innerHeight;
 
@@ -129,6 +187,12 @@
                 paragraph3.querySelector('p').style.opacity = 1; // Fade in paragraph text
             }
 
+            if (scrollPosition > paragraph4.offsetTop - windowHeight / 2) {
+                paragraph4.classList.add('visible');
+                paragraph4.querySelector('p').style.opacity = 1; // Fade in paragraph text
+            }
+
+
             // Check if the picture is in the viewport
             if (scrollPosition > picture1.offsetTop - windowHeight / 2) {
                 picture1.classList.add('visible');
@@ -141,7 +205,14 @@
             if (scrollPosition > picture3.offsetTop - windowHeight / 2) {
                 picture3.classList.add('visible');
             }
+
+            if (scrollPosition > picture4.offsetTop - windowHeight / 2) {
+                picture4.classList.add('visible');
+            }
+            
         });
+
+        
     </script>
 </body>
 </html>
